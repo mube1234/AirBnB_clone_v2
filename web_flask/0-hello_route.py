@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-"""a script that starts a Flask web application"""
+"""Starts Flask web app
+Listening on 0.0.0.0:5000
+Route '/' displays "Hello HBNB!"
+"""
 from flask import Flask
-app = Flask(__name__)
-app.strict_slashes = False
 
-@app.route('/')
-def hello_hbnb():
-    """ a method to display Hello HBNB!"""
+app = Flask(__name__)
+
+
+@app.route('/', strict_slashes=False)
+def hello_route():
+    """Displays 'Hello HBNB!'"""
     return "Hello HBNB!"
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
